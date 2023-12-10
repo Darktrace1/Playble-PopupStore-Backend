@@ -6,10 +6,10 @@ import (
 )
 
 type Config struct {
-    Port  			string	`mapstructure:"PORT"`
-    DBUrl 			string 	`mapstructure:"DB_URL"`
+    Port 			string	`mapstructure:"PORT"`
+    DBUrl			string 	`mapstructure:"DB_URL"`
 	AwsRegion		string 	`mapstructure:"AWS_REGION"`
-	AwsAccessKey 	string 	`mapstructure:"AWS_ACCESS_KEY_ID"`
+	AwsAccessKey	string 	`mapstructure:"AWS_ACCESS_KEY_ID"`
 	AwsSecretKey 	string 	`mapstructure:"AWS_SECRET_ACCESS_KEY"`
 }
 
