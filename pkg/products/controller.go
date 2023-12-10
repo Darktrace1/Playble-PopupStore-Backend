@@ -20,7 +20,7 @@ func RegisterRoutes(app *fiber.App, db *mongorm.Model, s3 *manager.Uploader) {
     routes := app.Group("/products")
     routes.Post("/", h.AddProduct)
     routes.Get("/", h.GetProducts)
-    routes.Get("/:id", h.GetProduct)
+    routes.Get("/:cid", h.GetProduct)
     // routes.Put("/:id", h.UpdateBook)
     // routes.Delete("/:id", h.DeleteBook)
 }

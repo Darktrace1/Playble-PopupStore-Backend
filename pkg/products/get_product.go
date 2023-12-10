@@ -2,6 +2,7 @@ package products
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/Darktrace1/Playble-PopupStore-Backend/pkg/common/models"
 	"github.com/gofiber/fiber/v2"
@@ -10,7 +11,8 @@ import (
 
 func (h handler) GetProduct(c *fiber.Ctx) error{
 	id := c.Params("cid")
-
+	fmt.Println(id)
+	
 	var product models.Product
 
 	filter := bson.M{"cid": id}
