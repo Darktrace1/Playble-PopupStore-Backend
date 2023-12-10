@@ -13,6 +13,7 @@ import (
 )
 
 type AddProductRequestBody struct {
+	Cid			string	`json:"cid,omitempty"`
 	Name		string	`json:"name"`
 	Provider	string	`json:"provider"`
 	Price		int		`json:"price"`
@@ -52,6 +53,8 @@ func (h handler) AddProduct(c *fiber.Ctx) error {
 	utils.CheckErr(err)
 	
 	// body.Image에 S3 Link 추가
+	db_id := time.Now().Format("20060102150405")
+	body.Cid = db_id
 	body.Image = result.Location
 
 	// Insert new db entry
@@ -61,7 +64,7 @@ func (h handler) AddProduct(c *fiber.Ctx) error {
 
 	var product models.Product
 		
-	product.Id = h.DB.ID.String()
+	product.Cid = db_id
 	product.Name = body.Name
 	product.Price = body.Price
 	product.Provider = body.Provider
